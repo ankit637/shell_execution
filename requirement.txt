@@ -3,3 +3,4 @@ threading
 os
 sys
 subprocess
+pyinstaller
