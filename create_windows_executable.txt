@@ -1,0 +1,14 @@
+Install PyInstaller:
+Open a command prompt and run the following command to install PyInstaller:
+pip install pyinstaller
+
+pyinstaller --onefile your_client_script.py
+your_client_script.py = your python code for convert it into .exe formate for windows
+
+Locate the .exe File:
+PyInstaller will create a dist directory in the same location as your script. Inside the dist directory, you'll find the .exe file named after your script.
+
+Run the .exe File:
+You can now run the .exe file on any Windows system without needing to have Python installed. The standalone executable will include all the necessary dependencies from your Python script.
+
+note: where you will run these commands "dist" folder is created in that directery: working_directory/dist/file.exe
