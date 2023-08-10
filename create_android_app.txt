@@ -1,0 +1,57 @@
+first you have to install ubuntu desktop: https://ubuntu.com/desktop
+some youtuber or institutes suggest did it on google colabs,kali linux but i really suggest do it on ubuntu, because it is required for "buildozer" that we will be used in this creation
+Android on Ubuntu 20.04 and 22.04 (64bit)
+
+First, install the buildozer project with:
+
+pip3 install --user --upgrade buildozer
+
+    
+according to "buildozer" documentetion you need to install some requirements:
+    sudo apt update
+    sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+    pip3 install --user --upgrade Cython==0.29.33 virtualenv
+
+If openjdk-17 is not compatible with other installed programs, for Buildozer the minimum compatible openjdk version is 11.
+
+ installation is completed
+now, you have to do some changes:
+# add the following line at the end of your ~/.bashrc file
+      terminal: cd ~/.bashrc file
+      export PATH=$PATH:~/.local/bin/  #add this line in end of your file  with gedit or nano and save it.
+
+after done this process:
+        1.create you working directory: mkdir app-development
+        2. create a "main.py" file in that directory #you can  copy/paste your python file but name should be "main.py"
+        3. sudo ~/.local/bin/buildozer init
+        after this command executes output be like: succesfully "buildozer.spec" is created
+        then you need to some changes in "buildozer.spec" with gedit or nano
+        Edit the "buildozer.spec" according to the specifications. 
+        You should at least change the title, package.name and package.domain in the [app] section
+        don't forget to uncomment and edit this line:
+        # Permissions
+        android.permissions = INTERNET, WRITE_EXTERNAL_STORAGE #you can add other permissions as required for your app
+        save the file.
+
+
+        Locate the following line: for output will be generated that name
+
+        output.filename = Brocodersg.apk
+        
+        3. start creating your app
+        sudo ~/.local/bin/buildozer -v android debug
+now, your app is started creating itself
+        Note: it will be take some time about 30-50 minutes as depend on your internet speed
+        after done this process, you can see the folder "bin" is created in your working directory
+        cd bin #your app is here: Brocoders.apk
+
+its time to test your app with directly "adb"
+          1. turn on your phone 
+          2. turn on developer options and  debugging
+          3. plug your usb cable pc/laptop to phone
+          4. execute command in "bin" directory of next line
+          5. adb install -r YourApp.apk
+          6. a small permission ask on your phone press "allow"
+          now, app is intalled succesfully
+
+          HAPPY CODING WITH PYTHON/KIVY
